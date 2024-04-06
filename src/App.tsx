@@ -10,8 +10,7 @@ function App() {
         <Navigation />
 
         <Routes>
-          <Route path="/paypal_calculator_web/" element={<CalculatorPage />} />
-          <Route path="/calculadora/" element={<CalculatorPage />} />
+          <Route path="/" element={<CalculatorPage />} />
         </Routes>
         <Toaster /> {/* toaster muestra notificaciones pero no se ejecuta hasta ejecutar toast en una page*/}
       </div>
