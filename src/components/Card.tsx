@@ -1,20 +1,21 @@
+import { ReactNode } from "react"
+
 interface CardProps {
-    body: string
+    children: ReactNode
 }
 
 export function Card(props:CardProps) {
-    const {body} = props
+    const {children} = props
     return (
         <div className=" bg-slate-200 border-black p-3 rounded-lg w-auto" style={{
-            width: '350px'
+            width: '350px',
+            margin: '5px',
         } // mala practica
     }>
             <div className="card-body">
-                <CardBody text="hola mundo" title="title" button={
-                    {
-                        text: "go to google",
-                        link: "https://www.google.com"
-                }} />
+                <p>---------------</p>
+                {children}
+                <p>---------------</p>
             </div>
         </div>
     )
