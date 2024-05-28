@@ -1,9 +1,15 @@
-export default function List() {
+
+type ListProps = {
+    data : string[]
+}
+
+export default function List( props:ListProps) {
+    const {data} = props
     return (
-        <ul className="list-inside">
-            <li className="list-item">Elemento 1</li>
-            <li className="list-item">Elemento 2</li>
-            <li className="list-item">Elemento 3</li>
-        </ul>
+            <ul className="p-2 shadow menu z-[1] bg-base-100 rounded-box ">
+                {data.map((element) => (
+                    <li><a>{element}</a></li>
+                ))}
+            </ul>
     )
 }

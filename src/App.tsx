@@ -6,6 +6,8 @@ import { Card, CardBody } from './components/Card';
 import  List  from './components/List';
 
 function App() {
+  const data = ["Naruto", "Goku", "Luffy", "Ichigo"]
+
   return (
     <BrowserRouter>
       <div className="container mx-auto">
@@ -38,7 +40,7 @@ function App() {
             }} />
         </Card>
         <Card>
-          <List></List>
+          <List data={data}/>
         </Card>
         <CalculatorPage />
         <Toaster /> {/* toaster muestra notificaciones pero no se ejecuta hasta ejecutar toast en una page*/}
