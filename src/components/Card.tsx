@@ -2,15 +2,21 @@ import { ReactNode } from "react"
 
 interface CardProps {
     children: ReactNode
+    width?: string
 }
 
 export function Card(props:CardProps) {
-    const {children} = props
+    const {children, width} = props
     return (
-        <div className=" bg-slate-200 border-black p-3 rounded-lg w-auto" style={{
+        <div className={"bg-slate-200 border-black p-3 rounded-lg w-auto"} 
+        style={ width == "Large"? {
             width: '350px',
             margin: '5px',
         } // mala practica
+        :{
+            width: '550px',
+            margin: '5px',
+        }
     }>
             <div className="card-body">
                 <p>---------------</p>
