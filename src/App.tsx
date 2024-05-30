@@ -40,7 +40,7 @@ function App() {
             }} />
         </Card>
         <Card>
-          <List data={data}/>
+          <List data={data} onHandleClick={()=>console.log}/>
         </Card>
         <CalculatorPage />
         <Toaster /> {/* toaster muestra notificaciones pero no se ejecuta hasta ejecutar toast en una page*/}
