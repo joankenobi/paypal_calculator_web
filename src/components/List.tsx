@@ -9,9 +9,14 @@ export default function List( props:ListProps) {
     const [
         index, // la variable que guarda el estado
         setIndex // la fonction que la modifica
-    ] = useState(1) // cada vez que se ejecute renderiza la fincion List
+    ] = useState <number|null>(null) // cada vez que se ejecute renderiza la fincion List
 
     const handleClick = (element:string, i:number) => {
+        if (index == i) {
+            setIndex(null)
+            console.log('Deseleccionado el i', i);
+            return
+        }
         setIndex(i)
         console.log(element);
     };
