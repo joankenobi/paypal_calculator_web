@@ -13,8 +13,8 @@ export function CalculatorPage() {
         setMonto(event.target.value);
     };
 
-    const diaTasa = 34.3 // 1 USDT = 34 Bs para cambios paypal (actualiza constantemente)
-    let binanceTasa = 38 // 1 USDT = 38 Bs (actualiza constantemente)
+    const diaTasa = 39.68 // 1 USDT = 34 Bs para cambios paypal (actualiza constantemente)
+    let binanceTasa = 39.68 // 1 USDT = 38 Bs (actualiza constantemente)
     const USDTfee = (monto: number) => { return (monto * (1 - (10 / 100))) }
     const Zinlifee = (monto: number) => { return (monto * (1 - (14 / 100))) }
     

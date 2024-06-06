@@ -1,23 +1,26 @@
 import { MouseEvent, useState } from "react"
 
 type ListProps = {
-    data : string[]
+    data : string[];
+    onSelect?: (elemento:string) => void; //fat arrow function que no retorna nada
 }
 
 export default function List( props:ListProps) {
-    const {data} = props
+    const {data, onSelect} = props
     const [
         index, // la variable que guarda el estado
         setIndex // la fonction que la modifica
     ] = useState <number|null>(null) // cada vez que se ejecute renderiza la fincion List
 
     const handleClick = (element:string, i:number) => {
+        let selectIndex: number | null = i
         if (index == i) {
-            setIndex(null)
-            console.log('Deseleccionado el i', i);
-            return
+            selectIndex = null
+            console.log('Deseleccionado el index', index);
+    
         }
-        setIndex(i)
+        setIndex(selectIndex)
+        onSelect?.(element); // ejecuta la funcion onSelect // ?. si onSelect es undefined no ejecuta la funcion
         console.log(element);
     };
 

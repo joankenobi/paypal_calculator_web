@@ -8,6 +8,13 @@ import  List  from './components/List';
 function App() {
   const data = ["Naruto", "Goku", "Luffy", "Ichigo"]
 
+  const handleSelect = (element: string) => {
+    console.log("imprimiendo", element);
+  }
+  const handleSelect2 = (element: string) => {
+    console.log("copiando", element);
+  }
+
   return (
     <BrowserRouter>
       <div className="container mx-auto">
@@ -40,7 +47,8 @@ function App() {
             }} />
         </Card>
         <Card>
-          <List data={data} onHandleClick={()=>console.log}/>
+          <List data={data} onSelect={handleSelect}/>
+          <List data={data} onSelect={handleSelect2}/>
         </Card>
         <CalculatorPage />
         <Toaster /> {/* toaster muestra notificaciones pero no se ejecuta hasta ejecutar toast en una page*/}
