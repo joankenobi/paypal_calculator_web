@@ -15,7 +15,7 @@ export function CalculatorPage() {
 
     const diaTasa = 39.68 // 1 USDT = 34 Bs para cambios paypal (actualiza constantemente)
     let binanceTasa = 39.68 // 1 USDT = 38 Bs (actualiza constantemente)
-    const USDTfee = (monto: number) => { return (monto * (1 - (10 / 100))) }
+    const USDTfee = (monto: number) => { return Number(monto * (1 - (10 / 100))).toFixed(2) }
     const Zinlifee = (monto: number) => { return (monto * (1 - (14 / 100))) }
     
     
@@ -74,10 +74,10 @@ export function CalculatorPage() {
                             <div
                                 className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
                             >
-                                <input {...register("monto")} type="text" value={monto} onChange={handleInputChange} placeholder="monto"
+                                <input className="px-5" {...register("monto")} type="text" value={monto} onChange={handleInputChange} placeholder="monto"
                                 />
                                 <label
-                                    className="bg-zinc-700"
+                                    className="bg-zinc-700 px-5"
                                 >
                                     USD
                                 </label>
@@ -87,13 +87,13 @@ export function CalculatorPage() {
                                     activeComponent === 'siEnvio' ?
                                         <Fragment>
                                             <label
-                                                className="bg-zinc-700 p-2 rounded-lg block w-full mb-3"
+                                                className="bg-zinc-700 p-2 rounded-lg block w-full mb-3 px-5"
                                             >
                                                 Comisión PayPal: {monto - paypalFee(monto, true)}
 
                                             </label>
                                             <label
-                                                className="bg-zinc-700 p-2 rounded-lg block w-full mb-3"
+                                                className="bg-zinc-700 p-2 rounded-lg block w-full mb-3 px-5"
                                             >
                                                 Monto recibido: {montoRecibido(paypalFee(monto,true), monto)}
                                             </label>
@@ -101,31 +101,31 @@ export function CalculatorPage() {
                                         :
                                         <Fragment>
                                             <label
-                                                className="bg-zinc-700 p-2 rounded-lg block w-full mb-3"
+                                                className="bg-zinc-700 p-2 rounded-lg block w-full mb-3 px-5"
                                             >
                                                 Comisión PayPal: {paypalFee(monto, false) - monto}
                                             </label>
                                             <label
-                                                className="bg-zinc-700 p-2 rounded-lg block w-full mb-3"
+                                                className="bg-zinc-700 p-2 rounded-lg block w-full mb-3 px-5"
                                             >
                                                 Debe enviar: {paypalFee(monto, false)}
                                             </label>
                                         </Fragment>
                                 }
                                 <label
-                                    className="bg-zinc-700 p-2 rounded-lg block w-full mb-3"
+                                    className="bg-zinc-700 p-2 rounded-lg block w-full mb-3 px-5"
                                 >
-                                    Tasa del día: {diaTasa}
+                                    Tasa del día: {diaTasa} Bs / 1 USD
                                 </label>
                             </div>
                             <div
                                 className="bg-zinc-700 p-2 rounded-lg block w-full mb-3"
                             >
-                                <label
+                                <label className="px-5"
                                 >
                                     Recibirás {montoRecibido(paypalFee(monto,true), monto) * diaTasa}
                                 </label>
-                                <label> BS </label>
+                                <label className="px-5"> BS </label>
                             </div>
                             <div>
                                 <div
@@ -140,7 +140,7 @@ export function CalculatorPage() {
                                                 className="bg-blue-700 p-2 rounded-lg mb-3"
                                             > -10% </label>
                                     }
-                                    <label> USDT </label>
+                                    <label className="px-5"> USDT </label>
                                 </div>
                                 <div
                                     className=" p-2 rounded-lg block mb-3"
@@ -154,7 +154,7 @@ export function CalculatorPage() {
                                                 className="bg-blue-700 p-2 rounded-lg mb-3"
                                                 > -14% </label>
                                             }
-                                    <label> ZINLI </label>
+                                    <label className="px-5"> ZINLI </label>
                                 </div>
                             </div>
                         </Fragment>

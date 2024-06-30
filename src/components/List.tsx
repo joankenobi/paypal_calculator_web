@@ -25,12 +25,17 @@ export default function List( props:ListProps) {
     };
 
     return (
-            <ul className="p-2 shadow menu-vertical z-[1] bg-base-100 rounded-box ">
+        <>
+            {data.length !== 0? (
+                <ul className="p-2 shadow menu-vertical z-[1] bg-base-100 rounded-box ">
                 {data.map((element, i) => (
                     <li className={`px-2 border-black border-2 ${index === i ? 'bg-blue-700 rounded-ee-box' : ''}`} 
                     onClick={() => handleClick(element, i)} 
                     key={element}><a>{element}</a></li>
                 ))}
             </ul>
+            ):
+            <span>No hay contenido</span>}
+            </>
     )
 }

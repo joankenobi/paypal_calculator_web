@@ -6,7 +6,7 @@ import { Card, CardBody } from './components/Card';
 import  List  from './components/List';
 
 function App() {
-  const data = ["Naruto", "Goku", "Luffy", "Ichigo"]
+  const data: any[] = []
 
   const handleSelect = (element: string) => {
     console.log("imprimiendo", element);
